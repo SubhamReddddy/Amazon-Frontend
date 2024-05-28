@@ -1,0 +1,4 @@
+.slick-arrow.slick-next::before,.slick-arrow.slick-prev::before{
+    content: none;
+    display: none;
+}
