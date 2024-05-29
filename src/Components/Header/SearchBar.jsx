@@ -39,10 +39,10 @@ const SearchBar = () => {
   }, [categoryProduct, currentPage, price, debounce]);
 
   return (
-    <div className="min-w-[90%] top-16 phoneLarge:top-0 phoneLarge:min-w-44 tabletLarge:w-[40%] h-10 flex rounded-md overflow-hidden border border-gray-600 mx-1 phoneSmall:absolute phoneLarge:static hover:shadow-searchbar">
+    <div className="w-[90%] top-16 phoneLarge:top-0 phoneLarge:min-w-44 tabletLarge:w-[40%] h-10 flex rounded-md overflow-hidden border border-gray-600 mx-1 phoneSmall:absolute phoneLarge:static hover:shadow-searchbar">
       {isLoading && <Loading />}
       <div
-        className="bg-gray-300 text-gray-700 w-fit min-w-12 flex justify-center items-center border-r border-gray-600 text-[11px] font-semibold z-20 cursor-pointer px-5"
+        className="bg-gray-300 text-gray-700 w-fit min-w-12 flex justify-center items-center border-r border-gray-600 text-[11px] font-semibold cursor-pointer px-5"
         onClick={() => {
           setCategory(!category);
         }}

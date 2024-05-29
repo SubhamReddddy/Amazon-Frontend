@@ -83,7 +83,7 @@ const ProfileComponent = () => {
           Login and Security
         </h1>
         {user.username && (
-          <div className="border border-gray-300 rounded-lg">
+          <div className="border border-gray-300 rounded-lg text">
             <div className="flex flex-col items-center gap-5 px-6 py-3 border-b border-gray-300">
               <div className="h-36 w-36 rounded-full flex justify-center items-center overflow-hidden">
                 <img src={newAvtar} alt="profile" className="h-full" />
@@ -127,7 +127,7 @@ const ProfileComponent = () => {
                 >
                   Name
                 </label>
-                <p>{user.username}</p>
+                <p className="text-sm phoneLarge:text-base">{user.username}</p>
               </div>
               <button
                 onClick={() => {
@@ -148,7 +148,7 @@ const ProfileComponent = () => {
                 >
                   Email
                 </label>
-                <p>{user.email}</p>
+                <p className="text-sm phoneLarge:text-base">{user.email}</p>
               </div>
               <button
                 onClick={() => {
@@ -169,7 +169,7 @@ const ProfileComponent = () => {
                 >
                   Phone
                 </label>
-                <p>{user.phoneno}</p>
+                <p className="text-sm phoneLarge:text-base">{user.phoneno}</p>
               </div>
               <button
                 onClick={() => {
@@ -190,7 +190,7 @@ const ProfileComponent = () => {
                 >
                   Password
                 </label>
-                <p>********</p>
+                <p className="text-sm phoneLarge:text-base">********</p>
               </div>
               <button
                 onClick={() => {

@@ -19,14 +19,9 @@ const GetAllProductWithFilterComponent = () => {
     (State) => State.ProductFilterSlice
   );
   const [show, setShow] = useState(false);
-  const [rangeValue, setRangeValue] = useState(100000);
+  const [rangeValue, setRangeValue] = useState(price);
   const debounce = UseDebounce(rangeValue);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(
-      filterProduct({ categoryProduct: "All", currentPage: 1, price: price })
-    );
-  }, []);
 
   useEffect(() => {
     dispatch(
@@ -38,6 +33,13 @@ const GetAllProductWithFilterComponent = () => {
     );
   }, [debounce]);
 
+  useEffect(() => {
+    dispatch(
+      filterProduct({ categoryProduct: "All", currentPage: 1, price: price })
+    );
+    // console.log(categoryProduct, currentPage, price);
+  }, []);
+
   return (
     <div>
       {products.length > 0 ? (
@@ -48,7 +50,11 @@ const GetAllProductWithFilterComponent = () => {
               to={`/product/${producte._id}`}
               onClick={() => {
                 dispatch(
-                  filterProduct({ categoryProduct: producte.productCategories })
+                  filterProduct({
+                    categoryProduct: producte.productCategories,
+                    currentPage: currentPage,
+                    price: price,
+                  })
                 );
               }}
             >

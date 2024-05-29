@@ -12,6 +12,7 @@ const AllProducts = () => {
   const { products, totalPages } = useSelector(
     (State) => State.ProductStoreSlice
   );
+  const { price } = useSelector((State) => State.ProductFilterSlice);
   useEffect(() => {
     dispatch(
       filterProduct({ categoryProduct: "All", currentPage: 1, price: 100000 })
@@ -27,7 +28,11 @@ const AllProducts = () => {
               to={`/product/${producte._id}`}
               onClick={() => {
                 dispatch(
-                  filterProduct({ categoryProduct: producte.productCategories })
+                  filterProduct({
+                    categoryProduct: producte.productCategories,
+                    currentPage: 1,
+                    price: price,
+                  })
                 );
               }}
             >

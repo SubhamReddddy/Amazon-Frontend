@@ -25,7 +25,7 @@ const SingleOrderPage = () => {
           {/* main div  */}
           <div className="mx-[10%] border border-gray-400 rounded-lg overflow-hidden">
             {/* header */}
-            <div className="flex justify-between text-sm font-bottom p-5 bg-[#ddd] border-b border-b-gray-400">
+            <div className="flex flex-col gap-2 phoneLarge:flex-row phoneLarge:gap-0 justify-between text-sm font-bottom p-5 bg-[#ddd] border-b border-b-gray-400">
               <div className="flex flex-col">
                 <span>ORDER #</span>
                 <span>{data.data.Item._id}</span>
