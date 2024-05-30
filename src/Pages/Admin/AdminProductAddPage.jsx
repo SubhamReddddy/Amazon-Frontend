@@ -160,14 +160,14 @@ const AdminProductAddPage = () => {
               />
             </div>
 
-            <div className="flex gap-5">
-              <div className="flex flex-col gap-1 w-full">
+            <div className="w-full gap-2 flex">
+              <div className="flex flex-col gap-1 flex-grow">
                 <label htmlFor="Stock" className="ml-1">
                   Stock
                 </label>
                 <input
                   type="number"
-                  className="h-10 p-2 rounded-md border border-zinc-300 hover:shadow-inputbox outline-none "
+                  className="h-10 p-2 rounded-md border border-zinc-300 hover:shadow-inputbox outline-none w-full"
                   min={0}
                   value={productStock}
                   onChange={(e) => {
@@ -176,7 +176,7 @@ const AdminProductAddPage = () => {
                   required
                 />
               </div>
-              <div className="flex flex-col gap-1 w-fit">
+              <div className="flex flex-col gap-1">
                 <label htmlFor="categories" className="ml-1">
                   categories
                 </label>

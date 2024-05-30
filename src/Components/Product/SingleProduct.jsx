@@ -215,7 +215,7 @@ const SingleProduct = () => {
 
           {/* review part */}
           {showReview && (
-            <div className="fixed top-0 left-0 bg-gray-800/30 w-screen h-screen flex justify-center items-center z-50">
+            <div className="fixed top-0 left-0 bg-gray-800/30 w-screen h-screen flex justify-center items-center z-30">
               <div
                 ref={myref}
                 className="bg-[#fff] w-96 h-80 p-3 flex flex-col gap-2 rounded-lg shadow-admin"

@@ -78,11 +78,11 @@ const AdminOrder = () => {
           <h1 className=" text-3xl font-bold px-6 py-5 font-header ml-0 tabletSmall:ml-60 mb-5">
             Orders
           </h1>
-          <div className="ml-0 tabletSmall:ml-60 mb-5 bg-white pb-5 px-5 border-b border-gray-400 grid grid-cols-[10%,30%,20%,15%,15%] place-items-center gap-3 text-xs phoneLarge:text-sm font-header font-semibold">
+          <div className="ml-0 tabletSmall:ml-60 mb-5 bg-white pb-5 px-5 border-b border-gray-400 grid grid-cols-[10%,30%,15%,20%,20%] place-items-center gap-3 text-xs phoneLarge:text-sm font-header font-semibold">
             <span className="whitespace-nowrap">Photo</span>
             <span className="whitespace-nowrap">Product Name</span>
-            <span className="whitespace-nowrap">Order Price</span>
-            <span className="whitespace-nowrap">Order Status</span>
+            <span className="whitespace-nowrap">Amount</span>
+            <span className="whitespace-nowrap">Status</span>
             <span className="whitespace-nowrap">Manage</span>
           </div>
           <div className="flex-grow">
@@ -90,7 +90,7 @@ const AdminOrder = () => {
               contents.map((items, idx) => (
                 <div
                   key={idx}
-                  className="ml-0 tabletSmall:ml-60 mb-5 bg-white pb-5 px-5 border-b border-gray-400 grid grid-cols-[10%,30%,20%,15%,15%] place-items-center gap-3 text-xs phoneLarge:text-sm font-bottom font-medium"
+                  className="ml-0 tabletSmall:ml-60 mb-5 bg-white pb-5 px-5 border-b border-gray-400 grid grid-cols-[10%,30%,15%,20%,20%] place-items-center gap-3 text-xs phoneLarge:text-sm font-bottom font-medium"
                 >
                   <div>
                     <img
