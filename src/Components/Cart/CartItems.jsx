@@ -71,38 +71,37 @@ const CartItems = () => {
           }
         }
       });
-
-      // createing option for select tag
-      let outerArray = [];
-      cart.map(async (item, j) => {
-        const res = await getSingleProductAdmin(item._id);
-        if (res.data.product.productStock === 0) {
-          outerArray.push(
-            <option key={j} value={0}>
-              {"OUT OF STOCK"}
-            </option>
-          );
-        } else {
-          let innerArray = [];
-          for (let i = 0; i < res.data.product.productStock; i++) {
-            innerArray.push(
-              <option key={i} value={i + 1}>
-                {i + 1}
-              </option>
-            );
-          }
-          outerArray.push(innerArray);
-          // console.log(outerArray[0].props.value);
-        }
-      });
-
-      // saveing the options for later use
-      setSelectOption(outerArray);
     }
     dispatch(filterProduct({ categoryProduct: "All" }));
   }, [render]);
 
   useEffect(() => {
+    // createing option for select tag
+    let outerArray = [];
+    cart.map(async (item, j) => {
+      const res = await getSingleProductAdmin(item._id);
+      if (res.data.product.productStock === 0) {
+        outerArray.push(
+          <option key={j} value={0}>
+            {"OUT OF STOCK"}
+          </option>
+        );
+      } else {
+        let innerArray = [];
+        for (let i = 0; i < res.data.product.productStock; i++) {
+          innerArray.push(
+            <option key={i} value={i + 1}>
+              {i + 1}
+            </option>
+          );
+        }
+        outerArray.push(innerArray);
+        // console.log(outerArray[0].props.value);
+      }
+    });
+
+    // saveing the options for later use
+    setSelectOption(outerArray);
     //calculating the price,gst and total
     let qu = 0;
     let sub = 0;
