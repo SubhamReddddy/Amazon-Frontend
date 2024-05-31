@@ -32,6 +32,9 @@ const PieChart = () => {
     })();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="h-full min-h-screen bg-gray-700 flex">
       <NavBar />

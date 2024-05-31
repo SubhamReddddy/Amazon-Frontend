@@ -82,6 +82,30 @@ export const AdminApi = createApi({
         method: "GET",
       }),
     }),
+    BestSeller: builder.mutation({
+      query: () => ({
+        url: "/admin/product/mostsell",
+        method: "GET",
+      }),
+    }),
+    NewReleases: builder.mutation({
+      query: () => ({
+        url: "/admin/product/latest",
+        method: "GET",
+      }),
+    }),
+    MensProduct: builder.mutation({
+      query: () => ({
+        url: "/admin/product/mensproduct",
+        method: "GET",
+      }),
+    }),
+    WomensProduct: builder.mutation({
+      query: () => ({
+        url: "/admin/product/womensproduct",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -98,4 +122,8 @@ export const {
   useDeleteUserMutation,
   useGetStatsMutation,
   useGetPieChartMutation,
+  useBestSellerMutation,
+  useNewReleasesMutation,
+  useMensProductMutation,
+  useWomensProductMutation,
 } = AdminApi;

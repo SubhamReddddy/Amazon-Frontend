@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const ServiceComingSoon = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="flex flex-col items-center justify-center h-screen text-center bg-gray-100">
       <h1 className="text-4xl font-bold mb-4 text-gray-800">

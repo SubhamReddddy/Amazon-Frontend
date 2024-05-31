@@ -28,96 +28,104 @@ const CartItems = () => {
   const [render, setRender] = useState(false);
 
   useEffect(() => {
-    if (cart) {
+    if (cart.length > 0) {
       //updateing cart items beased on database data
-      cart.forEach(async (item, idx) => {
-        const res = await getSingleProductAdmin(item._id);
-        if (res.data) {
-          const diff = res.data.product.productStock - cart[idx].quantity;
-          // console.log(`product[${idx}]` + diff);
-          if (diff < 0) {
-            toast.error("we don't have that much stock");
-            dispatch(
-              updateItem({
-                ...res.data.product,
-                quantity: res.data.product.productStock,
-              })
-            );
-          } else if (
-            cart[idx].quantity === 0 &&
-            res.data.product.productStock !== 0
-          ) {
-            toast.success("out of stock product is now available");
-            dispatch(
-              updateItem({
-                ...res.data.product,
-                quantity: 1,
-              })
-            );
-          } else {
-            dispatch(
-              updateItem({
-                ...res.data.product,
-                quantity: cart[idx].quantity,
-              })
-            );
-          }
-        } else if (res.error) {
-          if (res.error.data.message === "Product Not Found!") {
-            toast.error(res.error.data.message);
-            dispatch(removeItem(item._id));
-          } else {
-            toast.error(res.error.data.message);
+      const fun = async () => {
+        for (let idx = 0; idx < cart.length; i++) {
+          const res = await getSingleProductAdmin(cart[idx]._id);
+          if (res.data) {
+            const diff = res.data.product.productStock - cart[idx].quantity;
+            // console.log(`product[${idx}]` + diff);
+            if (diff < 0) {
+              toast.error("we don't have that much stock");
+              dispatch(
+                updateItem({
+                  ...res.data.product,
+                  quantity: res.data.product.productStock,
+                })
+              );
+            } else if (
+              cart[idx].quantity === 0 &&
+              res.data.product.productStock !== 0
+            ) {
+              toast.success("out of stock product is now available");
+              dispatch(
+                updateItem({
+                  ...res.data.product,
+                  quantity: 1,
+                })
+              );
+            } else {
+              dispatch(
+                updateItem({
+                  ...res.data.product,
+                  quantity: cart[idx].quantity,
+                })
+              );
+            }
+          } else if (res.error) {
+            if (res.error.data.message === "Product Not Found!") {
+              toast.error(res.error.data.message);
+              dispatch(removeItem(cart[idx]._id));
+            } else {
+              toast.error(res.error.data.message);
+            }
           }
         }
-      });
+      };
+      fun();
     }
     dispatch(filterProduct({ categoryProduct: "All" }));
   }, [render]);
 
   useEffect(() => {
-    // createing option for select tag
-    let outerArray = [];
-    cart.map(async (item, j) => {
-      const res = await getSingleProductAdmin(item._id);
-      if (res.data.product.productStock === 0) {
-        outerArray.push(
-          <option key={j} value={0}>
-            {"OUT OF STOCK"}
-          </option>
-        );
-      } else {
-        let innerArray = [];
-        for (let i = 0; i < res.data.product.productStock; i++) {
-          innerArray.push(
-            <option key={i} value={i + 1}>
-              {i + 1}
-            </option>
-          );
+    if (cart.length > 0) {
+      // createing option for select tag
+      let outerArray = [];
+
+      (async () => {
+        for (let j = 0; j < cart.length; j++) {
+          const res = await getSingleProductAdmin(cart[j]._id);
+          if (res.data.product.productStock === 0) {
+            outerArray.push(
+              <option key={j} value={0}>
+                {"OUT OF STOCK"}
+              </option>
+            );
+          } else {
+            let innerArray = [];
+            for (let i = 0; i < res.data.product.productStock; i++) {
+              innerArray.push(
+                <option key={i} value={i + 1}>
+                  {i + 1}
+                </option>
+              );
+            }
+            outerArray.push(innerArray);
+            // console.log(outerArray[0].props.value);
+          }
         }
-        outerArray.push(innerArray);
-        // console.log(outerArray[0].props.value);
-      }
-    });
+      })();
 
-    // saveing the options for later use
-    setSelectOption(outerArray);
-    //calculating the price,gst and total
-    let qu = 0;
-    let sub = 0;
-    let gs = 0;
-    let tot = 0;
-    cart.forEach((item) => {
-      qu += item.quantity;
-      tot += item.productPrice * item.quantity;
-    });
+      // saveing the options for later use
+      setSelectOption(outerArray);
+      //calculating the price,gst and total
+      let qu = 0;
+      let sub = 0;
+      let gs = 0;
+      let tot = 0;
+      cart.forEach((item) => {
+        qu += item.quantity;
+        tot += item.productPrice * item.quantity;
+      });
 
-    setQuant(qu);
-    setTotal(tot);
-    gs = (tot / 100) * 28;
-    setGst(gs);
-    sub = tot + gs;
-    setSubTotal(sub);
+      setQuant(qu);
+      setTotal(tot);
+      gs = (tot / 100) * 28;
+      setGst(gs);
+      sub = tot + gs;
+      setSubTotal(sub);
+    }
   }, [cart]);
 
   //item remove function

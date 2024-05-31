@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import SideBar from "./SideBar";
+import { Link } from "react-router-dom";
 const Bottom = () => {
   const [sidebar, setSidebar] = useState(false);
   return (
@@ -15,21 +16,26 @@ const Bottom = () => {
         <span className="h-fit mt-[1px]">All</span>
       </div>
 
-      <div className="headerHover h-[98%] whitespace-nowrap cursor-pointer">
+      <Link
+        to={"/product/category/newreleases"}
+        className="headerHover h-[98%] whitespace-nowrap cursor-pointer"
+      >
         Fresh
-      </div>
+      </Link>
 
-      <div className="headerHover h-[98%] whitespace-nowrap cursor-pointer">
+      <Link
+        to={"/product/category/bestsellers"}
+        className="headerHover h-[98%] whitespace-nowrap cursor-pointer"
+      >
         Best Sellers
-      </div>
+      </Link>
 
-      <div className="headerHover h-[98%] whitespace-nowrap cursor-pointer hidden phoneLarge::block">
-        Mobiles
-      </div>
-
-      <div className="headerHover h-[98%] whitespace-nowrap cursor-pointer hidden tabletSmall:block">
+      <Link
+        to={"/servicecomingsoon"}
+        className="headerHover h-[98%] whitespace-nowrap cursor-pointer hidden tabletSmall:block"
+      >
         Customer Service
-      </div>
+      </Link>
       <SideBar fun={setSidebar} value={sidebar} />
     </div>
   );

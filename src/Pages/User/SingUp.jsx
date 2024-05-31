@@ -218,6 +218,10 @@ const SignIn = () => {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (_id) return <Navigate to={"/"} />;
   return (
     <div className="h-fit relative">

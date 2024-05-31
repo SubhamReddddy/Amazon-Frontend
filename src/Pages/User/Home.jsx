@@ -1,21 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slick from "../../Components/Slick/Slick";
-import {
-  bannerImgOne,
-  bannerImgTwo,
-  bannerImgThree,
-  bannerImgFour,
-  bannerImgFive,
-} from "../../assets/imagePath";
 import AllProducts from "../../Components/Product/AllProducts";
 const Home = () => {
-  const image = [
-    bannerImgOne,
-    bannerImgTwo,
-    bannerImgThree,
-    bannerImgFour,
-    bannerImgFive,
-  ];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="mt-36 h-fit w-full overflow-hidden phoneLarge:mt-24 text-white">
       <Slick />

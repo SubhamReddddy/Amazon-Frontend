@@ -90,6 +90,10 @@ const AdminProductPage = () => {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="w-full flex bg-white relativ">
       {(isLoading || Load) && <Loading />}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Loading from "../../Components/Loader/Loading";
 import { useAddProductMutation } from "../../Redux/Api/UserApi";
@@ -101,6 +101,9 @@ const AdminProductAddPage = () => {
     });
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-gray-700">
       <NavBar />

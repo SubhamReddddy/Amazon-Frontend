@@ -146,6 +146,10 @@ const ForgotPassword = () => {
     getDetails();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return isLoading || Load || Load1 || Load2 ? (
     <Loading />
   ) : (

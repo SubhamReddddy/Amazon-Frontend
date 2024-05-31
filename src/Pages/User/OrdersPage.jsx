@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGetAllOrdersQuery } from "../../Redux/Api/UserApi";
 import Loading from "../../Components/Loader/Loading";
 import { emptyOrder } from "../../assets/imagePath";
@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 
 const OrdersPage = () => {
   const { data, isLoading } = useGetAllOrdersQuery();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="mt-36 h-fit w-full overflow-hidden phoneLarge:mt-24">
       {isLoading && <Loading />}

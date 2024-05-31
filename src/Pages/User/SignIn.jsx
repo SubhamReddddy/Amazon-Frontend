@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { logo2 } from "../../assets/imagePath";
 import Button from "@mui/material/Button";
 import { Link, Navigate } from "react-router-dom";
@@ -42,6 +42,10 @@ const SignIn = () => {
       toast.error(res.error.data.message);
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (_id) return <Navigate to={"/"} />;
   return (

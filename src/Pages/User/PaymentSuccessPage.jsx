@@ -39,6 +39,10 @@ const PaymentSuccessPage = () => {
     }
   }, [id]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const funFunction = () => {
     navigate("/me/account/orders");
   };

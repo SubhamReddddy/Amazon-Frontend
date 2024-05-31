@@ -47,6 +47,10 @@ import PieChart from "./Pages/Admin/PieChart";
 import LineChart from "./Pages/Admin/LineChart";
 import ServiceComingSoon from "./Pages/User/ServiceComingSoon";
 import AllProductWithFilter from "./Pages/User/AllProductWithFilter";
+import MensProductPage from "./Pages/User/MensProductPage";
+import WomensProductpage from "./Pages/User/WomensProductpage";
+import BestSellerProductPage from "./Pages/User/BestSellerProductPage";
+import NewProductsPage from "./Pages/User/NewProductsPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -65,6 +69,22 @@ const router = createBrowserRouter(
         <Route path="/me/account" element={<UserAccount />} />
         <Route path="/me/account/profile" element={<UserProfile />} />
         <Route path="/me/account/orders" element={<OrdersPage />} />
+        <Route
+          path="/product/category/mensfashion"
+          element={<MensProductPage />}
+        />
+        <Route
+          path="/product/category/womensfashion"
+          element={<WomensProductpage />}
+        />
+        <Route
+          path="/product/category/bestsellers"
+          element={<BestSellerProductPage />}
+        />
+        <Route
+          path="/product/category/newreleases"
+          element={<NewProductsPage />}
+        />
         <Route
           path="/me/account/orders/:id1/:id2"
           element={<SingleOrderPage />}

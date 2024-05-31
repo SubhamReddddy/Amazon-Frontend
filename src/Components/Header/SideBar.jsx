@@ -74,7 +74,8 @@ const SideBar = ({ fun, value }) => {
                   {items.heading}
                 </h1>
                 {items.data.map((itm, idx) => (
-                  <div
+                  <Link
+                    to={items.link[idx]}
                     key={idx}
                     className="flex items-center justify-between hover:bg-slate-200 pr-5"
                     onClick={() => {
@@ -85,7 +86,7 @@ const SideBar = ({ fun, value }) => {
                       {itm}
                     </h2>
                     <KeyboardDoubleArrowRightIcon sx={{ color: grey[500] }} />
-                  </div>
+                  </Link>
                 ))}
               </div>
               <hr className="bg-black h-[1.5px]" />
@@ -125,7 +126,8 @@ const SideBar = ({ fun, value }) => {
                 </Link>
               )}
               {user && user._id && (
-                <div
+                <Link
+                  to={"/servicecomingsoon"}
                   className="flex items-center justify-between hover:bg-slate-200 pr-5"
                   onClick={() => {
                     fun(!value);
@@ -135,7 +137,7 @@ const SideBar = ({ fun, value }) => {
                     Customer Service
                   </h2>
                   <KeyboardDoubleArrowRightIcon sx={{ color: grey[500] }} />
-                </div>
+                </Link>
               )}
               <Link
                 to={user ? (user._id ? "/" : "/signin") : "/signin"}

@@ -12,6 +12,9 @@ const SingleOrderPage = () => {
       toast.error(error.data.message);
     }
   }, [error]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="mt-36 h-fit w-full overflow-hidden phoneLarge:mt-24">
       {isLoading && <Loading />}

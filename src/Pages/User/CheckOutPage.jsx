@@ -22,6 +22,9 @@ const CheckOutPage = () => {
       }
     }
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!payment) return <Navigate to={"/product/cart"} />;
   return (

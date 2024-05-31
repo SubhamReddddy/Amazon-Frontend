@@ -18,6 +18,12 @@ const sideBarList = [
   {
     heading: "Trending",
     data: ["Best Sellers", "New Releases"],
+    link: ["/product/category/bestsellers", "/product/category/newreleases"],
+  },
+  {
+    heading: "Shop by Category",
+    data: ["Men's Fashion", "Women's Fashion"],
+    link: ["/product/category/mensfashion", "/product/category/womensfashion"],
   },
   {
     heading: "Digital Content and Devices",
@@ -29,10 +35,14 @@ const sideBarList = [
       "Amazon Prime Video",
       "Amazon Prime Music",
     ],
-  },
-  {
-    heading: "Shop by Category",
-    data: ["Mobiles, Computers", "Men's Fashion", "Women's Fashion"],
+    link: [
+      "/servicecomingsoon",
+      "/servicecomingsoon",
+      "/servicecomingsoon",
+      "/servicecomingsoon",
+      "/servicecomingsoon",
+      "/servicecomingsoon",
+    ],
   },
   {
     heading: "Programs & Features",
@@ -41,6 +51,12 @@ const sideBarList = [
       "Gift Cards & Mobile Recharges",
       "Amazon Launchpad",
       "Handloom and Handicrafts",
+    ],
+    link: [
+      "/servicecomingsoon",
+      "/servicecomingsoon",
+      "/servicecomingsoon",
+      "/servicecomingsoon",
     ],
   },
 ];
