@@ -59,6 +59,8 @@ const SingleProduct = () => {
   const [AddRating, { isLoading: Load }] = useAddRatingMutation();
 
   useEffect(() => {
+    setAddRating(0);
+    setReview("");
     const func = async () => {
       const res = await getSingleProductAdmin(id);
       if (res.data) {
