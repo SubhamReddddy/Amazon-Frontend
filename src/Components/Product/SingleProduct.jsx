@@ -15,13 +15,36 @@ import RateReviewIcon from "@mui/icons-material/RateReview";
 import ClearIcon from "@mui/icons-material/Clear";
 import DoneIcon from "@mui/icons-material/Done";
 import { useAddRatingMutation } from "../../Redux/Api/UserApi";
+import { useWishListMutation } from "../../Redux/Api/ProductApi";
+import { getUserDetails } from "../../Redux/Reducers/UserSlice";
 const SingleProduct = () => {
   const { cart } = useSelector((State) => State.CartSlice);
-  const { _id } = useSelector((State) => State.userSlice.user);
+  const { _id, wishes } = useSelector((State) => State.userSlice.user);
+  const { user } = useSelector((State) => State.userSlice);
+  const [hart, setHart] = useState(false);
   const myref = useRef();
 
   const dispatch = useDispatch();
   const { id } = useParams();
+  const [wishList, { isLoading: Load1 }] = useWishListMutation();
+
+  const onclickHart = async () => {
+    const res = await wishList(id);
+    if (res.data) {
+      toast.success(res.data.message);
+      dispatch(getUserDetails(res.data.user));
+    } else {
+      toast.error(res.error.data.message);
+    }
+  };
+  useEffect(() => {
+    const index = wishes.findIndex((wish) => wish.productId === id);
+    if (index !== -1) {
+      setHart(true);
+    } else {
+      setHart(false);
+    }
+  }, [id, user]);
 
   const [disable, setDisable] = useState(false);
   const [messages, setMessages] = useState("IN STOCK");
@@ -146,13 +169,16 @@ const SingleProduct = () => {
   });
   return (
     <div className="mt-36 mb-8 h-fit w-full overflow-hidden phoneLarge:mt-24 text-black">
-      {(isLoading || Load) && <Loading />}
+      {(isLoading || Load || Load1) && <Loading />}
       {product && (
         <div className="block tabletSmall:grid grid-cols-2">
           <div className="p-5  relative">
             <ImageStack images={product.images} />
-            <div className="absolute right-5 top-5 ">
-              <Hart />
+            <div
+              className="absolute right-5 top-5 cursor-pointer"
+              onClick={onclickHart}
+            >
+              <Hart value={hart} />
             </div>
           </div>
 

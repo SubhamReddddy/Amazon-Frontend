@@ -51,6 +51,7 @@ import MensProductPage from "./Pages/User/MensProductPage";
 import WomensProductpage from "./Pages/User/WomensProductpage";
 import BestSellerProductPage from "./Pages/User/BestSellerProductPage";
 import NewProductsPage from "./Pages/User/NewProductsPage";
+import WishList from "./Pages/User/WishList";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -69,6 +70,7 @@ const router = createBrowserRouter(
         <Route path="/me/account" element={<UserAccount />} />
         <Route path="/me/account/profile" element={<UserProfile />} />
         <Route path="/me/account/orders" element={<OrdersPage />} />
+        <Route path="/me/products/wishlist" element={<WishList />} />
         <Route
           path="/product/category/mensfashion"
           element={<MensProductPage />}

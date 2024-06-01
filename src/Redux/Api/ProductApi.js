@@ -35,6 +35,18 @@ export const productApi = createApi({
         };
       },
     }),
+    wishList: builder.mutation({
+      query: (id) => ({
+        url: `/user/me/wish/${id}`,
+        method: "GET",
+      }),
+    }),
+    wishListProducts: builder.mutation({
+      query: () => ({
+        url: "/user/me/wish/products",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -43,4 +55,6 @@ export const {
   useGetSingleProductQuery,
   useGetProductsByCategoryQuery,
   useGetAllProductAdminFilteredMutation,
+  useWishListMutation,
+  useWishListProductsMutation,
 } = productApi;

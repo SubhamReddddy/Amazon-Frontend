@@ -25,7 +25,7 @@ export const userAccountdata = [
   },
   {
     image: contactUs,
-    link: "",
+    link: "/servicecomingsoon",
     header: "Contact Us",
     body: "Contact With Us",
   },

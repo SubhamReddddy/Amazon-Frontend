@@ -139,14 +139,15 @@ const Top = () => {
                   >
                     Your Orders
                   </Link>
-                  <p
+                  <Link
+                    to={"/me/products/wishlist"}
                     className="text-sm font-medium text-gray-800 hover:underline hover:text-orange-600"
                     onClick={() => {
                       setSignHover(false);
                     }}
                   >
                     Your Wish List
-                  </p>
+                  </Link>
                 </div>
               )}
             </div>
