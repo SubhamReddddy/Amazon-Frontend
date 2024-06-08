@@ -203,27 +203,28 @@ const SingleProduct = () => {
             </div>
             <p className="font-header text-lg mb-5">{`Price : ₹${product.productPrice}`}</p>
 
-            <Button
-              variant="outlined"
-              size="large"
-              style={{ marginRight: "20px" }}
-              endIcon={<ShoppingCartIcon />}
-              onClick={addToCartHandler}
-              disabled={disable}
-            >
-              Add to Cart
-            </Button>
+            <div className="flex flex-col gap-5 phoneMedium:flex-row">
+              <Button
+                variant="outlined"
+                size="large"
+                endIcon={<ShoppingCartIcon />}
+                onClick={addToCartHandler}
+                disabled={disable}
+              >
+                Add to Cart
+              </Button>
 
-            <Button
-              variant="contained"
-              size="large"
-              endIcon={<RateReviewIcon />}
-              onClick={() => {
-                setShowReview(true);
-              }}
-            >
-              Add Review
-            </Button>
+              <Button
+                variant="contained"
+                size="large"
+                endIcon={<RateReviewIcon />}
+                onClick={() => {
+                  setShowReview(true);
+                }}
+              >
+                Add Review
+              </Button>
+            </div>
             {messages === "OUT OF STOCK" && (
               <div className="font-bottom text-red-500 font-medium mt-5">
                 {messages}

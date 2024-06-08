@@ -83,7 +83,7 @@ function ImageStack(props) {
               <img
                 src={image.url}
                 alt="product image"
-                className="w-96 min-w-96 h-auto tabletSmall:max-h-96 m-auto aspect-square object-contain"
+                className="w-96 h-auto tabletSmall:max-h-96 m-auto aspect-square object-contain"
               />
             </div>
           );

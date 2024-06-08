@@ -39,7 +39,7 @@ const SideBar = ({ fun, value }) => {
         initial={{ x: -400, opacity: 1 }}
         animate={value ? { x: 0, opacity: 1 } : { x: -400, opacity: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-white w-80 h-full fixed left-0 top-0 z-50 overflow-auto"
+        className="bg-white w-72 phoneMedium:w-80 h-full fixed left-0 top-0 z-50 overflow-auto"
       >
         <Link
           to={user ? (user._id ? "/" : "/signin") : "/signin"}
@@ -170,7 +170,7 @@ const SideBar = ({ fun, value }) => {
       >
         <CancelSharpIcon
           fontSize="large"
-          className="absolute left-80 cursor-pointer"
+          className="absolute left-72 phoneMedium:left-80 cursor-pointer"
         />
       </motion.div>
     </div>

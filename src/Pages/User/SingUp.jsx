@@ -232,7 +232,7 @@ const SignIn = () => {
             <img
               src={logo2}
               alt={logo2}
-              className="h-16 mt-2 headerHover hover:border-black"
+              className="w-36 mt-2 headerHover hover:border-black"
             />
           </Link>
         </div>
@@ -531,7 +531,7 @@ const SignIn = () => {
                   <b className="text-blue-500 cursor-pointer hover:text-red-500 font-medium">
                     Conditions of Use{" "}
                   </b>
-                  and
+                  and{" "}
                   <b className="text-blue-500 cursor-pointer hover:text-red-500 font-medium">
                     Privacy Policy
                   </b>

@@ -21,7 +21,7 @@ const AllProducts = () => {
   return (
     <div>
       {products.length > 0 ? (
-        <div className="grid grid-cols-2 phoneLarge:grid-cols-3 tabletMedium:grid-cols-4 laptopmin:grid-cols-5 gap-5 mx-5 mb-2">
+        <div className="grid grid-cols-1 phoneMedium:grid-cols-2 phoneLarge:grid-cols-3 tabletMedium:grid-cols-4 laptopmin:grid-cols-5 gap-5 mx-5 mb-2">
           {products.map((producte) => (
             <Link
               key={producte._id}

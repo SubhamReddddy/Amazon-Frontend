@@ -214,7 +214,7 @@ const CartItems = () => {
         {cart.map((item, idx) => (
           <div key={item._id} className="bg-[#ffffff]">
             {isLoading && <Loading />}
-            <div className="grid grid-cols-[40%,40%,20%] bg-[#ffffff] px-5">
+            <div className="flex flex-col phoneLarge:grid grid-cols-[40%,40%,20%] bg-[#ffffff] p-5">
               <div className="h-52 flex justify-center items-center">
                 <img
                   src={item.images[0].url}
@@ -225,7 +225,7 @@ const CartItems = () => {
 
               <div className="pt-5 px-2">
                 <p className="text-xs font-header font-semibold mb-5">
-                  {item.productName.substring(0, 50) + "..."}
+                  {item.productName.substring(0, 500) + "..."}
                 </p>
 
                 <div className="bg-[#ffffff] shadow-productcard hover:shadow-searchbar  w-fit flex p-1 border hover:border-black rounded-lg text-xs mt-2 mb-5">

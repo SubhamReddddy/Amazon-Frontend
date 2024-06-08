@@ -82,19 +82,21 @@ const AdminOrder = () => {
           <h1 className=" text-3xl font-bold px-6 py-5 font-header ml-0 tabletSmall:ml-60 mb-5">
             Orders
           </h1>
-          <div className="ml-0 tabletSmall:ml-60 mb-5 bg-white pb-5 px-5 border-b border-gray-400 grid grid-cols-[10%,30%,15%,20%,20%] place-items-center gap-3 text-xs phoneLarge:text-sm font-header font-semibold">
+          <div className="ml-0 tabletSmall:ml-60 mb-5 bg-white pb-5 px-5 border-b border-gray-400 grid grid-cols-[10%,40%,20%,20%]  phoneMedium:grid-cols-[10%,30%,15%,20%,20%] place-items-center gap-3 text-xs phoneLarge:text-sm font-header font-semibold">
             <span className="whitespace-nowrap">Photo</span>
             <span className="whitespace-nowrap">Product Name</span>
             <span className="whitespace-nowrap">Amount</span>
             <span className="whitespace-nowrap">Status</span>
-            <span className="whitespace-nowrap">Manage</span>
+            <span className="whitespace-nowrap hidden phoneMedium:block">
+              Manage
+            </span>
           </div>
           <div className="flex-grow">
             {contents ? (
               contents.map((items, idx) => (
                 <div
                   key={idx}
-                  className="ml-0 tabletSmall:ml-60 mb-5 bg-white pb-5 px-5 border-b border-gray-400 grid grid-cols-[10%,30%,15%,20%,20%] place-items-center gap-3 text-xs phoneLarge:text-sm font-bottom font-medium"
+                  className="ml-0 tabletSmall:ml-60 mb-5 bg-white pb-5 px-5 border-b border-gray-400 grid grid-cols-[10%,40%,20%,20%]  phoneMedium:grid-cols-[10%,30%,15%,20%,20%] place-items-center gap-3 text-xs phoneLarge:text-sm font-bottom font-medium"
                 >
                   <div>
                     <img
@@ -119,6 +121,9 @@ const AdminOrder = () => {
                   >
                     {items.deliveryStatus}
                   </span>
+                  <span className="block phoneMedium:hidden" />
+                  <span className="block phoneMedium:hidden" />
+                  <span className="block phoneMedium:hidden" />
                   <Link
                     to={`/admin/orders/${items.orderId}/${items._id}`}
                     className="bg-blue-500/40 rounded-lg overflow-hidden py-1 px-2 text-blue-800"

@@ -28,10 +28,10 @@ const ProductCard = (productes) => {
         </div>
         <p className="font-header">{`Price : ₹${product.productPrice}`}</p>
         <p className="text-sm font-header">
-          {product.productName.substring(0, 17) + "..."}
+          {product.productName.substring(0, 15) + "..."}
         </p>
         <p className="text-xs font-bottom">
-          {product.productDiscription.substring(0, 24) + "..."}
+          {product.productDiscription.substring(0, 20) + "..."}
         </p>
       </div>
       <p className="absolute top-[2px] right-[2px] text-sm bg-white px-2 rounded font-semibold text-blue-500">

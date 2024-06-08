@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const BottomMiddle = () => {
   return (
-    <div className="h-full w-full bg-[#232F3E] grid grid-cols-2 tabletSmall:grid-cols-4 pt-5 pb-10">
+    <div className="h-full w-full bg-[#232F3E] grid grid-cols-1 phoneMedium:grid-cols-2 tabletSmall:grid-cols-4 pt-5 pb-10">
       {BottomMiddleList.map((item, idx) => (
         <div
           key={idx}

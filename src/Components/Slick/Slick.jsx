@@ -20,7 +20,7 @@ function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className="right-7 top-24 phoneLarge:right-10 phoneLarge:top-36"
+      className="right-7 top-20 phoneMedium:top-24 phoneLarge:right-10 phoneLarge:top-36"
       style={{
         ...style,
         display: "block",
@@ -36,7 +36,7 @@ function SampleNextArrow(props) {
           top: "50%",
           transform: "translate(-50%,-50%)",
         }}
-        className="text-black hover:shadow-slidebutton py-12 px-3 -mt-8 phoneLarge:py-24 phoneLarge:px-6 rounded cursor-pointer"
+        className="text-black hover:shadow-slidebutton py-7 phoneMedium:py-12 px-3 -mt-8 phoneLarge:py-24 phoneLarge:px-6 rounded cursor-pointer"
       >
         <KeyboardArrowRightIcon fontSize="large" />
       </div>
@@ -48,7 +48,7 @@ function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className="left-7 top-24 phoneLarge:left-10 phoneLarge:top-36"
+      className="left-7 top-20 phoneMedium:top-24 phoneLarge:left-10 phoneLarge:top-36"
       style={{
         ...style,
         display: "block",
@@ -65,7 +65,7 @@ function SamplePrevArrow(props) {
           top: "50%",
           transform: "translate(-50%,-50%)",
         }}
-        className="text-black hover:shadow-slidebutton py-12 px-3 -mt-8 phoneLarge:py-24 phoneLarge:px-6  rounded cursor-pointer"
+        className="text-black hover:shadow-slidebutton py-7 phoneMedium:py-12 px-3 -mt-8 phoneLarge:py-24 phoneLarge:px-6  rounded cursor-pointer"
       >
         <KeyboardArrowLeftIcon fontSize="large" />
       </div>

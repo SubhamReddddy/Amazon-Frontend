@@ -78,7 +78,7 @@ const ProfileComponent = () => {
   if (!_id) return <Navigate to={"/signin"} />;
   return (
     <div className="bg-[#fff] flex justify-center py-10 px-5 phoneLarge:px-0">
-      <div className="w-[600px]">
+      <div className="w-80 phoneMedium:w-[600px]">
         <h1 className="font-header text-3xl mb-5 font-medium pl-1">
           Login and Security
         </h1>
@@ -119,7 +119,7 @@ const ProfileComponent = () => {
               />
             </div>
 
-            <div className="flex justify-between px-6 py-3 border-b border-gray-300">
+            <div className="flex justify-between items-center px-6 py-3 border-b border-gray-300 gap-5">
               <div>
                 <label
                   htmlFor="name"
@@ -134,13 +134,13 @@ const ProfileComponent = () => {
                   setPasswordField(true);
                   setPath("/me/account/profile/update/name");
                 }}
-                className="h-fit border border-gray-300 py-0.5 px-16 rounded shadow-productcard"
+                className="h-fit border border-gray-300 py-0.5 px-5 rounded shadow-productcard"
               >
                 Edit
               </button>
             </div>
 
-            <div className="flex justify-between px-6 py-3 border-b border-gray-300">
+            <div className="flex justify-between items-center px-6 py-3 border-b border-gray-300 gap-5">
               <div>
                 <label
                   htmlFor="Email"
@@ -155,13 +155,13 @@ const ProfileComponent = () => {
                   setPasswordField(true);
                   setPath("/me/account/profile/update/email");
                 }}
-                className="h-fit border border-gray-300 py-0.5 px-16 rounded shadow-productcard"
+                className="h-fit border border-gray-300 py-0.5 px-5 rounded shadow-productcard"
               >
                 Edit
               </button>
             </div>
 
-            <div className="flex justify-between px-6 py-3 border-b border-gray-300">
+            <div className="flex justify-between items-center px-6 py-3 border-b border-gray-300 gap-5">
               <div>
                 <label
                   htmlFor="phone"
@@ -176,13 +176,13 @@ const ProfileComponent = () => {
                   setPasswordField(true);
                   setPath("/me/account/profile/update/phone");
                 }}
-                className="h-fit border border-gray-300 py-0.5 px-16 rounded shadow-productcard"
+                className="h-fit border border-gray-300 py-0.5 px-5 rounded shadow-productcard"
               >
                 Edit
               </button>
             </div>
 
-            <div className="flex justify-between px-6 py-3">
+            <div className="flex justify-between items-center px-6 py-3">
               <div>
                 <label
                   htmlFor="password"
@@ -197,7 +197,7 @@ const ProfileComponent = () => {
                   setPasswordField(true);
                   setPath("/me/account/profile/update/password");
                 }}
-                className="h-fit border border-gray-300 py-0.5 px-16 rounded shadow-productcard"
+                className="h-fit border border-gray-300 py-0.5 px-5 rounded shadow-productcard"
               >
                 Edit
               </button>

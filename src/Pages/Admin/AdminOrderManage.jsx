@@ -54,7 +54,7 @@ const AdminOrderManage = () => {
           {data && (
             <div>
               {/* header */}
-              <div className="pt-5 mb-5 mr-5 pl-5 flex justify-between items-center">
+              <div className="pt-5 mb-5 mr-5 pl-5 flex flex-col phoneMedium:flex-row gap-5 justify-between phoneMedium:items-center">
                 <h1 className="text-3xl font-header">Order Details</h1>
                 <Button
                   type="submit"
@@ -78,13 +78,15 @@ const AdminOrderManage = () => {
               {/* main div  */}
               <div className="mx-5 border border-gray-400 rounded-lg overflow-hidden">
                 {/* header */}
-                <div className="flex justify-between text-sm font-bottom p-5 bg-[#ddd] border-b border-b-gray-400">
+                <div className="flex flex-col gap-5 phoneMedium:flex-row justify-between text-xs phoneLarge:text-sm font-bottom p-5 bg-[#ddd] border-b border-b-gray-400">
                   <div className="flex flex-col">
                     <span>ORDER #</span>
                     <span>{data.data.Item._id}</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="uppercase">Shipping Status</span>
+                    <span className="uppercase whitespace-nowrap">
+                      Shipping Status
+                    </span>
                     <span className="font-medium text-base mt-2">
                       <select
                         className="h-10 p-2 rounded-md bg-transparent border-2 border-white hover:shadow-inputbox outline-none"

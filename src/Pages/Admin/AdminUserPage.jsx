@@ -81,20 +81,21 @@ const AdminUserPage = () => {
           <h1 className=" text-3xl font-bold px-6 py-5 font-header ml-0 tabletSmall:ml-60 mb-5">
             Users
           </h1>
-          <div className="ml-0 tabletSmall:ml-60 mb-5 bg-white pb-5 px-5 border-b border-gray-400 grid grid-cols-[10%,30%,10%,20%,20%] place-items-center gap-3 text-xs phoneLarge:text-sm font-header font-semibold">
+          <div className="ml-0 tabletSmall:ml-60 mb-5 bg-white pb-5 px-5 border-b border-gray-400 grid grid grid-cols-[30%,50%,10%]  phoneMedium:grid-cols-[10%,30%,10%,20%,20%]  place-items-center gap-3 text-xs phoneLarge:text-sm font-header font-semibold">
             <span>Photo</span>
             <span>Name</span>
             <span>Role</span>
-            <span>Manage</span>
-            <span>Delete</span>
+            <span className="hidden phoneMedium:block">Manage</span>
+            <span className="hidden phoneMedium:block">Delete</span>
           </div>
           <div className="flex-grow">
             {contents ? (
               contents.map((items, idx) => (
                 <div
                   key={idx}
-                  className="ml-0 tabletSmall:ml-60 mb-5 bg-white pb-5 px-5 border-b border-gray-400 grid grid-cols-[10%,30%,10%,20%,20%] place-items-center gap-3 text-xs phoneLarge:text-sm font-bottom font-medium"
+                  className="ml-0 tabletSmall:ml-60 mb-5 bg-white pb-5 px-5 border-b border-gray-400 grid grid-cols-[30%,50%,10%]  phoneMedium:grid-cols-[10%,30%,10%,20%,20%] place-items-center gap-3 text-xs phoneLarge:text-sm font-bottom font-medium"
                 >
+                  {/* image */}
                   <div className="flex flex-grow">
                     <img
                       src={items.avtar.url || avatar}
@@ -102,10 +103,15 @@ const AdminUserPage = () => {
                       className="w-14 min-w-14 aspect-square object-contain rounded-full"
                     />
                   </div>
+                  {/* name */}
                   <span className="text-center">
                     {items.username.substring(0, 30)}
                   </span>
+                  {/* role */}
                   <span>{items.role}</span>
+
+                  <span className="block phoneMedium:hidden"></span>
+                  {/* manage */}
                   <Link
                     to={
                       items.role === "admin"
@@ -121,6 +127,7 @@ const AdminUserPage = () => {
                   >
                     Manage
                   </Link>
+                  {/* delete */}
                   <button
                     onClick={() => {
                       deleteUserFun(items._id);
