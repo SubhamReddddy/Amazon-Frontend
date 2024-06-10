@@ -6,10 +6,10 @@ const UserAccountDas = () => {
   const { _id } = useSelector((State) => State.userSlice.user);
   if (!_id) return <Navigate to={"/signin"} />;
   return (
-    <div className="pt-5 pb-20 pl-[5px] phoneMedium:pl-[10%]">
-      <h1 className="text-3xl font-header mb-5">Your Account</h1>
+    <div className="pt-5 pb-20 pl-5 phoneMedium:pl-[10%]">
+      <h1 className="text-3xl font-header mb-5 ">Your Account</h1>
 
-      <div className="flex flex-wrap gap-5">
+      <div className="flex justify-center phoneMedium:justify-start flex-wrap gap-5">
         {userAccountdata.map((data, idx) => (
           <Link
             to={`${data.link}`}

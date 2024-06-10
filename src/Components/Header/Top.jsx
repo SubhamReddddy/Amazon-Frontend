@@ -25,8 +25,8 @@ const Top = () => {
   return (
     <div className="bg-gray-900 w-full h-16 flex items-center justify-evenly relative mb-12 phoneLarge:mb-0">
       {/* logo */}
-      <Link to={"/"} className="headerHover">
-        <img src={logo} alt="logo" className="h-[100%] mt-2" />
+      <Link to={"/"} className="headerHover w-28 min-w-24">
+        <img src={logo} alt="logo" className="w-full mt-2" />
       </Link>
       {/* location */}
       <Link

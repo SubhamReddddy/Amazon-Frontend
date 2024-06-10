@@ -44,7 +44,7 @@ const AllProducts = () => {
         <img src={noProduct} alt="no product" />
       )}
       {totalPages > 1 && (
-        <div className="mb-3 flex justify-center">
+        <div className="my-5 flex justify-center">
           <Link to={"/products"}>
             <Button
               variant="contained"

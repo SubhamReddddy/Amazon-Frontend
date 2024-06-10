@@ -72,7 +72,6 @@ export const CartSlice = createSlice({
       }
     },
     removeAllItems: (state, action) => {
-      localStorage.removeItem("paymentID");
       localStorage.removeItem("cart");
       state.cart = [];
     },
