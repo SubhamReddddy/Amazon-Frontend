@@ -31,7 +31,7 @@ const CartItems = () => {
     if (cart.length > 0) {
       //updateing cart items beased on database data
       const fun = async () => {
-        for (let idx = 0; idx < cart.length; i++) {
+        for (let idx = 0; idx < cart.length; idx++) {
           const res = await getSingleProductAdmin(cart[idx]._id);
           if (res.data) {
             const diff = res.data.product.productStock - cart[idx].quantity;

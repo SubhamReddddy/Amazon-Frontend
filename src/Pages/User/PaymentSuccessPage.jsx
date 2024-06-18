@@ -8,8 +8,9 @@ import { useNavigate } from "react-router-dom";
 import Loading from "../../Components/Loader/Loading";
 import { removeAllItems } from "../../Redux/Reducers/CartSlice";
 const PaymentSuccessPage = () => {
-  let id = localStorage.getItem("paymentID");
   const { user } = useSelector((State) => State.userSlice);
+  const { cart } = useSelector((State) => State.CartSlice);
+  let id = localStorage.getItem("paymentID");
   const [paymentSuccessMut, { isLoading }] = usePaymentSuccessMutMutation();
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
@@ -17,7 +18,9 @@ const PaymentSuccessPage = () => {
 
   useEffect(() => {
     const fun = async () => {
-      const res = await paymentSuccessMut(id);
+      const data = { cart, id };
+      console.log(data);
+      const res = await paymentSuccessMut(data);
       if (res.data) {
         if (res.data.paymentStatus === "paid") {
           toast.success("Payment Successful");

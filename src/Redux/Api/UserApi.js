@@ -141,9 +141,10 @@ export const userApi = createApi({
       }),
     }),
     paymentSuccessMut: builder.mutation({
-      query: (id) => ({
+      query: ({ cart, id }) => ({
         url: `/user/me/paymentstatus/${id}`,
-        method: "GET",
+        method: "POST",
+        body: { cart },
       }),
     }),
     defaultAddressUpdateMut: builder.mutation({
