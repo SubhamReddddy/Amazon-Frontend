@@ -160,8 +160,8 @@ const SideBar = ({ fun, value }) => {
 
       {/* transparent div */}
       <motion.div
-        initial={{ x: -1500, opacity: 0 }}
-        animate={value ? { x: 0, opacity: 1 } : { x: -1500, opacity: 0 }}
+        initial={{ x: -2000, opacity: 0 }}
+        animate={value ? { x: 0, opacity: 1 } : { x: -2000, opacity: 0 }}
         transition={{ duration: 0.5 }}
         className="bg-gray-900/80 fixed w-screen h-full left-0 top-0 z-30 cursor-default"
         onClick={() => {
