@@ -166,6 +166,7 @@ export const userApi = createApi({
     }),
     getSingleOrders: builder.query({
       query: (data) => `/user/me/Orders/${data.id1}/${data.id2}`,
+      providesTags: ["SingleProduct"],
     }),
     getSingleOrdersMut: builder.mutation({
       query: (data) => ({
@@ -179,6 +180,13 @@ export const userApi = createApi({
         method: "POST",
         body: data,
       }),
+    }),
+    cancleOrderReq: builder.mutation({
+      query: (data) => ({
+        url: `/user/me/orders/cancel/${data.id1}/${data.id2}`,
+        method: "GET",
+      }),
+      invalidatesTags: ["SingleProduct"],
     }),
   }),
 });
@@ -211,4 +219,7 @@ export const {
   useGetSingleOrdersMutMutation,
   useAvtarUpdateMutation,
   useAddRatingMutation,
+  useCancleOrderReqMutation,
 } = userApi;
+
+//

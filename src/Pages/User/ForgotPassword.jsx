@@ -4,12 +4,12 @@ import { logo2 } from "../../assets/imagePath";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import {
-  checkPhoneno,
+  validateEmail,
   checkPasswordStrength,
 } from "../../Features/InputValidator";
 import {
-  usePhoneNumberOtpVarifyMutation,
-  usePhoneOTPSendMutation,
+  useEmailVarifyMutation,
+  useEmailOtpMutation,
   usePasswordForgotMutation,
   useGetUserDetailsMutMutation,
 } from "../../Redux/Api/UserApi";
@@ -33,15 +33,14 @@ const ForgotPassword = () => {
   const [newPasswordConfirm, setNewPasswordConfirm] = useState("");
   const [confirmPasswordConfirm, setConfirmPasswordConfirm] = useState("");
 
-  const [phoneOTPSend, { isLoading }] = usePhoneOTPSendMutation();
-  const [phoneNumberOtpVarify, { isLoading: Load }] =
-    usePhoneNumberOtpVarifyMutation();
+  const [phoneOTPSend, { isLoading }] = useEmailOtpMutation();
+  const [phoneNumberOtpVarify, { isLoading: Load }] = useEmailVarifyMutation();
   const [passwordForgot, { isLoading: Load1 }] = usePasswordForgotMutation();
   const [getUserDetailsMut, { isLoading: Load2 }] =
     useGetUserDetailsMutMutation();
 
   useEffect(() => {
-    setValidPhoneno(checkPhoneno(phoneno));
+    setValidPhoneno(validateEmail(phoneno));
   }, [phoneno]);
 
   useEffect(() => {
@@ -57,7 +56,7 @@ const ForgotPassword = () => {
   const OTPphone = async () => {
     if (validPhoneno) {
       if (phoneId !== "") clearInterval(phoneId);
-      const res = await phoneOTPSend({ phoneno });
+      const res = await phoneOTPSend({ email: phoneno });
       setPhoneVarified(false);
       if (res.error) {
         toast.error(res.error.data.message);
@@ -181,17 +180,15 @@ const ForgotPassword = () => {
                   htmlFor="mobile phone number"
                   className="text-sm font-semibold ml-0.5"
                 >
-                  mobile phone number
+                  email address
                 </label>
                 <div className="flex gap-3 mb-5">
                   <input
-                    type="text"
+                    type="email"
                     name="phoneno"
                     id="phoneno"
                     className="w-full h-8 border border-gray-600 outline-none p-3 rounded focus:shadow-inputbox"
-                    placeholder="Mobile number"
-                    minLength={10}
-                    maxLength={10}
+                    placeholder="Email"
                     value={phoneno}
                     required
                     readOnly={phoneVarified || !phoneReq}

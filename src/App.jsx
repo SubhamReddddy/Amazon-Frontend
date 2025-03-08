@@ -52,6 +52,7 @@ import WomensProductpage from "./Pages/User/WomensProductpage";
 import BestSellerProductPage from "./Pages/User/BestSellerProductPage";
 import NewProductsPage from "./Pages/User/NewProductsPage";
 import WishList from "./Pages/User/WishList";
+import CancelOrderData from "./Pages/Admin/CancelOrderData";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -129,6 +130,7 @@ const router = createBrowserRouter(
         <Route path="/admin/barchart" element={<Barchat />} />
         <Route path="/admin/piechart" element={<PieChart />} />
         <Route path="/admin/linechart" element={<LineChart />} />
+        <Route path="/admin/ordercancel" element={<CancelOrderData />} />
         <Route
           path="/admin/products/:id"
           element={<AdminProductManagePage />}

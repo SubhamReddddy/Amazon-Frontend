@@ -38,7 +38,7 @@ const SignIn = () => {
 
   const [phoneno, setPhoneno] = useState("");
   const [validPhoneno, setValidPhoneno] = useState(false);
-  const [phoneVarified, setPhoneVarified] = useState(false);
+  const [phoneVarified, setPhoneVarified] = useState(true);
   const [phoneReq, setPhoneReq] = useState(true);
   const [phoneTime, setPhoneTime] = useState(15);
   const [phoneOTP, setPhoneOTP] = useState("");
@@ -159,54 +159,6 @@ const SignIn = () => {
     }
   };
 
-  const OTPphone = async () => {
-    if (validPhoneno) {
-      if (phoneId !== "") clearInterval(phoneId);
-      const res = await phoneNumberVarify({ phoneno });
-      setPhoneVarified(false);
-      if (res.error) {
-        toast.error(res.error.data.message);
-        if (res.error.data.time) {
-          setPhoneReq(false);
-          const { time } = res.error.data;
-          phoneId = setInterval(() => {
-            const expiry = (
-              (time - new Date(Date.now()).getTime()) /
-              60000
-            ).toFixed(2);
-            setPhoneTime(expiry);
-
-            if (expiry <= 0) {
-              clearInterval(phoneId);
-              setPhoneReq(true);
-            }
-          });
-        }
-      } else if (res.data) {
-        if (res.data.message === "Please try after some time!") {
-          toast.error(res.data.message);
-        } else {
-          toast.success(res.data.message);
-          setPhoneReq(false);
-          const { time } = res.data;
-          phoneId = setInterval(() => {
-            const expiry = (
-              (time - new Date(Date.now()).getTime()) /
-              60000
-            ).toFixed(2);
-            setPhoneTime(expiry);
-
-            if (expiry <= 0) {
-              clearInterval(phoneId);
-              setPhoneReq(true);
-            }
-          });
-        }
-      }
-    } else {
-      toast.error("Please enter a valid phone !");
-    }
-  };
   const otpPhoneVarifyHandler = async () => {
     const res = await phoneNumberOtpVarify({ phoneno, otp: phoneOTP });
     if (res.data) {
@@ -387,12 +339,12 @@ const SignIn = () => {
                       maxLength={10}
                       value={phoneno}
                       required
-                      readOnly={phoneVarified || !phoneReq}
+                      // readOnly={phoneVarified || !phoneReq}
                       onChange={(e) => {
                         setPhoneno(e.target.value);
                       }}
                     />
-                    {!phoneVarified ? (
+                    {/* {!phoneVarified ? (
                       <Button
                         variant="contained"
                         size="small"
@@ -409,7 +361,7 @@ const SignIn = () => {
                       </Button>
                     ) : (
                       <div className="text-green-600 capitalize">verified</div>
-                    )}
+                    )} */}
                   </div>
                   {phoneno && (
                     <p className="text-xs font-medium text-[#2b2b2b] h-5 flex items-center mt-1">
@@ -424,7 +376,7 @@ const SignIn = () => {
                     </p>
                   )}
 
-                  {/* phoneOTP */}
+                  {/* phoneOTP
                   {!phoneReq && !phoneVarified && (
                     <div>
                       <label htmlFor="email" className="text-sm font-semibold">
@@ -458,7 +410,7 @@ const SignIn = () => {
                         </Button>
                       </div>
                     </div>
-                  )}
+                  )} */}
                 </div>
               )}
 

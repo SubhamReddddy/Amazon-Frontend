@@ -106,6 +106,12 @@ export const AdminApi = createApi({
         method: "GET",
       }),
     }),
+    cancelOrder: builder.mutation({
+      query: () => ({
+        url: "/admin/cancel",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -126,4 +132,5 @@ export const {
   useNewReleasesMutation,
   useMensProductMutation,
   useWomensProductMutation,
+  useCancelOrderMutation,
 } = AdminApi;

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const OrdersPage = () => {
   const { data, isLoading } = useGetAllOrdersQuery();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

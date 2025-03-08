@@ -90,12 +90,12 @@ const SignIn = () => {
               <div className="flex flex-col gap-1 mb-5">
                 <div className="text-sm font-semibold flex justify-between">
                   <label htmlFor="password">Password</label>
-                  <Link
+                  {/* <Link
                     to={"/forgot/password"}
                     className="text-blue-500 cursor-pointer hover:text-red-500"
                   >
                     Forgot Password
-                  </Link>
+                  </Link> */}
                 </div>
                 <input
                   type="password"

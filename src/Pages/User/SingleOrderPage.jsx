@@ -1,12 +1,17 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useGetSingleOrdersQuery } from "../../Redux/Api/UserApi";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  useCancleOrderReqMutation,
+  useGetSingleOrdersQuery,
+} from "../../Redux/Api/UserApi";
 import toast from "react-hot-toast";
 import Loading from "../../Components/Loader/Loading";
 
 const SingleOrderPage = () => {
+  const navigate = useNavigate();
   const { id1, id2 } = useParams();
   const { data, error, isLoading } = useGetSingleOrdersQuery({ id1, id2 });
+  const [cancleOrderReq, { isLoading: Load }] = useCancleOrderReqMutation();
   useEffect(() => {
     if (error) {
       toast.error(error.data.message);
@@ -17,12 +22,29 @@ const SingleOrderPage = () => {
   }, []);
   return (
     <div className="mt-36 h-fit w-full overflow-hidden phoneLarge:mt-24">
-      {isLoading && <Loading />}
+      {(isLoading || Load) && <Loading />}
       {data && (
         <div>
           {/* header */}
-          <div className="pt-5 pl-[10%]">
+          <div className="pt-5 pl-[10%] flex justify-between mb-10">
             <h1 className="text-3xl font-header mb-5">Order Details</h1>
+            {data.data.Item.deliveryStatus !== "Cancelled" && (
+              <button
+                className="bg-red-500 text-white px-5 border rounded text-xl mr-36"
+                onClick={async () => {
+                  const res = await cancleOrderReq({ id1, id2 });
+                  if (res.data) {
+                    toast.success(res.data.message);
+                    navigate("/me/account/orders");
+                  } else {
+                    toast.error(res.error.data.message);
+                    navigate("/me/account/orders");
+                  }
+                }}
+              >
+                Cancel Order
+              </button>
+            )}
           </div>
 
           {/* main div  */}
@@ -45,7 +67,8 @@ const SingleOrderPage = () => {
                       (data.data.Item.deliveryStatus === "Shipped" &&
                         "yellowgreen") ||
                       (data.data.Item.deliveryStatus === "Delivered" &&
-                        "green"),
+                        "green") ||
+                      (data.data.Item.deliveryStatus === "Cancelled" && "red"),
                   }}
                 >
                   {data.data.Item.deliveryStatus}

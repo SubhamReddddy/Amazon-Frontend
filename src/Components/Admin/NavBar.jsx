@@ -52,6 +52,13 @@ const NavBar = () => {
       link2: "/admin/orders",
       link4: "/admin/orders",
     },
+    {
+      name: "ordercancelled",
+      icon: <BorderAllIcon />,
+      link: "/admin/ordercancel",
+      link2: "/admin/ordercancel",
+      link4: "/admin/ordercancel",
+    },
   ];
 
   const ChatArray = [
